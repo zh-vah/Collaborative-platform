@@ -1,7 +1,7 @@
 <template>
   <div class="box-right-warp bounceInRight animated">
     <div class="box-right-line">
-      <div class="box-right-close">
+      <div class="box-right-close" @click="boxClose()">
         <img src="@/assets/img/box/box-close.png" title="关闭面板" alt="关闭" />
       </div>
       <div class="box-right-title">{{title}}</div>
@@ -18,7 +18,13 @@ export default {
   props: {
     title: String,
   },
+  methods: {
+    boxClose() {
+      document.querySelector(".box-right-warp").style.display = "none"
+    }
+  }
 };
+
 </script>
 
 <style lang="sass" scoped>

@@ -23,6 +23,12 @@
               <p class="subbox-text">原材料管控的对接ababab公路是“长三角经济圈”苏浙两省间六条大通道之一，是长三角高速公路网规划的“纵三”江苏盐城至浙江绍兴高速公路的重要组成部分，起自苏州市，由江苏省苏震桃高速公路进入浙江省，经湖州、嘉兴，接已建成通车的钱江通道及其南北接线，通过杭绍"+
              "台高速公路，直达台州。苏</p>
           </div >
+          <div class="subbox">
+              <img class="subbox-img" src="../../assets/img/BoxleftIcon.png" alt="">
+              <h3 class="subbox-title">门禁系统</h3>
+              <p class="subbox-text">原材料管控的对接ababab公路是“长三角经济圈”苏浙两省间六条大通道之一，是长三角高速公路网规划的“纵三”江苏盐城至浙江绍兴高速公路的重要组成部分，起自苏州市，由江苏省苏震桃高速公路进入浙江省，经湖州、嘉兴，接已建成通车的钱江通道及其南北接线，通过杭绍"+
+             "台高速公路，直达台州。苏</p>
+          </div >
       </div>
     </BoxRight>
   </div>
@@ -120,6 +126,8 @@ export default {
       font-size: 50px;
       color: #097dc2
   .text
+    width: 364px;
+    margin: 6px 0 11px 14px;
     line-height: 26px;
     font-size: 14px;
     color: rgb( 255, 255, 255 );
@@ -129,6 +137,7 @@ export default {
     position: relative;
     width: 376px;
     margin-top: 5px;
+    margin-left: 10px;
     background-color: rgba(11,46,67,.8);
     .subbox-img
       margin: 5px 0 12px 17px
@@ -139,10 +148,12 @@ export default {
       font-size: 16px;
       color: rgb( 38, 206, 255 );
     .subbox-text
-      color: rgb( 255, 255, 255 );
+      width: 351px;
       font-size: 14px;
       text-indent: 2em;
       line-height: 25px;
+      color: rgb( 255, 255, 255 );
 </style>
+
 
 

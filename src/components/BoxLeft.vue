@@ -1,7 +1,7 @@
 <template>
   <div class="box-left-warp bounceInLeft animated">
     <div class="box-left-line">
-      <div class="box-left-close">
+      <div class="box-left-close" @click="boxClose()">
         <img src="@/assets/img/box/box-close.png" title="关闭面板" alt="关闭" />
       </div>
       <div class="box-left-title">{{title}}</div>
@@ -18,6 +18,11 @@ export default {
   props: {
     title: String,
   },
+  methods: {
+    boxClose() {
+      document.querySelector(".box-left-warp").style.display = "none"
+    }
+  }
 };
 </script>
 
