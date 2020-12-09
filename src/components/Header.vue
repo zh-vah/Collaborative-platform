@@ -24,6 +24,7 @@ export default {
   transform: translate(-50%, 0%)
   background: url(../assets/img/header-nav.png) no-repeat
   margin-left: -383px
+  z-index: 9999
   > h1
     background-image: linear-gradient(to right, #0bc8fe, #feea85)
     background-clip: text

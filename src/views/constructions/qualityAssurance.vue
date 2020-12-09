@@ -18,48 +18,24 @@
         </div>
       </div>
       <div class="iscompleted-box">
-        <div class="not-completed"><span class="text">未完成</span></div>
-        <div class="completed"><span class="text">已完成</span></div>
+        <div class="not-completed" @click="completedChange($event)"><span class="text">未完成</span></div>
+        <div class="completed" @click="completedChange($event)"><span class="text">已完成</span></div>
       </div>
-      <div class="search-content-box">
-        <div class="sc-box-top">
-          <div class="sc-box-degree"><span>轻微</span></div>
-          <p class="sc-box-title">桥面板未挂养生牌</p>
-          <img src="" alt="">
+      <template v-for="(item,index) in menus">
+        <div class="search-content-box" :key="index">
+          <div class="sc-box-top">
+            <div class="sc-box-degree"><span>{{item.degree}}</span></div>
+            <p class="sc-box-title">{{item.title}}</p>
+            <img src="" alt="">
+          </div>
+          <div class="sc-box-bottom">
+            <span class="sc-box-create-time">创建时间 :</span>
+            <span class="sc-box-create-data">{{item.createData}}</span>
+            <span class="sc-box-discoverer">发现人 :</span>
+            <span class="sc-box-discoverer-name">{{item.discoverName}}</span>
+          </div>
         </div>
-        <div class="sc-box-bottom">
-          <span class="sc-box-create-time">创建时间 :</span>
-          <span class="sc-box-create-data">2019-03-14</span>
-          <span class="sc-box-discoverer">发现人 :</span>
-          <span class="sc-box-discoverer-name">李增得</span>
-        </div>
-      </div>
-      <div class="search-content-box">
-        <div class="sc-box-top">
-          <div class="sc-box-degree"><span>轻微</span></div>
-          <p class="sc-box-title">桥面板未挂养生牌</p>
-          <img src="" alt="">
-        </div>
-        <div class="sc-box-bottom">
-          <span class="sc-box-create-time">创建时间 :</span>
-          <span class="sc-box-create-data">2019-03-14</span>
-          <span class="sc-box-discoverer">发现人 :</span>
-          <span class="sc-box-discoverer-name">李增得</span>
-        </div>
-      </div>
-      <div class="search-content-box">
-        <div class="sc-box-top">
-          <div class="sc-box-degree"><span>轻微</span></div>
-          <p class="sc-box-title">桥面板未挂养生牌</p>
-          <img src="" alt="">
-        </div>
-        <div class="sc-box-bottom">
-          <span class="sc-box-create-time">创建时间 :</span>
-          <span class="sc-box-create-data">2019-03-14</span>
-          <span class="sc-box-discoverer">发现人 :</span>
-          <span class="sc-box-discoverer-name">李增得</span>
-        </div>
-      </div>
+      </template>
     </BoxLeft>
 
     <BoxRight title="质量管理详细信息">
@@ -82,6 +58,35 @@ import BoxLeft from '../../components/BoxLeft.vue';
 export default {
   components: { BoxLeft },
   name: "qualityAssurance",
+  data() {
+    return {
+      menus:{
+        menu1:{
+          degree: "轻微",
+          title: "桥面板未挂养生牌",
+          createData: "2019-03-14",
+          discoverName: "李增得"
+        },
+        menu2:{
+          degree: "轻微",
+          title: "桥面板未挂养生牌",
+          createData: "2019-03-14",
+          discoverName: "李增得"
+        },
+        menu3:{
+          degree: "轻微",
+          title: "桥面板未挂养生牌",
+          createData: "2019-03-14",
+          discoverName: "李增得"
+        }
+      }
+    }
+  },
+  methods: {
+    completedChange(e) {
+      e.currentTarget.style.background = "url('../../assets/img/constructions/qualityAssurance/arror-active.png')"
+    }
+  }
 };
 </script>
 
@@ -168,10 +173,14 @@ export default {
       width: 53px;
       height: 20px;
       margin-right: 16px;
+      padding-top: 5px;
       border-radius: 9px;
       background-color: rgba( 204, 255, 183, 0.102);
       span
+        margin-left: 10px;
         color: #3fd802;
+    .sc-box-title
+      margin-top: 5px;
   .sc-box-bottom
     display: flex;
     justify-content: left;

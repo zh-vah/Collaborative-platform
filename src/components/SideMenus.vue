@@ -100,6 +100,7 @@ export default {
   position: absolute
   right: 30px
   bottom: 20px
+  z-index: 9999
   .button-nav-btn-list
     display: flex
     .item

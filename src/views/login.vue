@@ -17,7 +17,12 @@
               <span>账户</span>
             </label>
             <div class="form-group-control">
-              <input type="text" class="login_input" placeholder="请输入账户名" />
+              <input
+                type="text"
+                v-model="form.username"
+                class="login_input"
+                placeholder="请输入账户名"
+              />
             </div>
           </div>
           <div class="form-group">
@@ -26,7 +31,12 @@
               <span>密码</span>
             </label>
             <div class="form-group-control">
-              <input type="password" class="login_input" placeholder="请输入密码" />
+              <input
+                type="password"
+                v-model="form.password"
+                class="login_input"
+                placeholder="请输入密码"
+              />
             </div>
           </div>
         </div>
@@ -42,11 +52,59 @@
 </template>
 
 <script>
+import md5 from "js-md5";
+import { resLoginApiCheckLogin } from "@/api";
+import { IS_OK } from "@/api/path";
 export default {
   name: "Login",
+  data() {
+    return {
+      form: {
+        username: "",
+        password: "",
+        verifycode: 1,
+      },
+    };
+  },
   methods: {
     handelSubmit() {
-      this.$router.push({ path: "/projectSelect" });
+      if (!this.form.username) {
+        this.$message({
+          message: "请输入账号",
+          type: "warning",
+        });
+        return false;
+      }
+      if (!this.form.password) {
+        this.$message({
+          message: "请输入密码",
+          type: "warning",
+        });
+        return false;
+      }
+      let params = {
+        username: this.form.username,
+        password: md5(this.form.password),
+        verifycode: this.form.verifycode,
+      };
+      this.submitData(params);
+    },
+    async submitData(params) {
+      let loading = this.$loading({
+        lock: true,
+        text: "正在登陆系统中，请等候。",
+        spinner: "el-icon-loading",
+        background: "rgba(0, 0, 0, 0.7)",
+      });
+      const res = await resLoginApiCheckLogin(params);
+      if (res.code === IS_OK) {
+        setTimeout(() => {
+          loading.close();
+          this.$router.push({ path: "/projectSelect" });
+        }, 500);
+      } else {
+        loading.close();
+      }
     },
   },
 };

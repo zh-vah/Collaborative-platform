@@ -93,8 +93,8 @@ export default {
   top: 50%;
   height: 401px;
   width: 39px;
-  transform: translate(0%, -50%);
-  z-index: 9;
+  transform: translate(0%, -50%)
+  z-index: 9999
   .extend
     position: absolute
     width: 10px

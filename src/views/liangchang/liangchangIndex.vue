@@ -9,6 +9,7 @@
         </div>
        <div style="height: 200px;">
           <v-chart :options="polar" :style="{width: '300px', height: '200px'}" />
+          <v-chart :options="bar" :style="{width: '323px', height: '343px'}" />
        </div>
       </div>
     </BoxLeft>
@@ -68,6 +69,30 @@ export default {
                     }
                 }
             }
+        ]
+      },
+      bar: {
+          legend: {},
+          tooltip: {},
+          dataset: {
+              source: [
+                  ['product', '2015', '2016', '2017'],
+                  ['2020-07', 43.3, 85.8, 93.7],
+                  ['2020-09', 83.1, 73.4, 55.1],
+                  ['2020-11', 86.4, 65.2, 82.5],
+                  ['Walnut Brownie', 72.4, 53.9, 39.1]
+              ]
+        },
+        xAxis: [
+          {type: 'category'},
+          {data: ['2020-07','2020-09','2020-11','2021-01']}
+        ],
+        yAxis: {},
+        // Declare several bar series, each will be mapped
+        // to a column of dataset.source by default.
+        series: [
+            {type: 'bar'},
+            {type: 'bar'},
         ]
       },
       text1: "苏台高速公路是“长三角经济圈”苏浙两省间六条大通道之一，是长三角高速公路网规划的“纵三”江苏盐城至浙江绍兴高速公路的重要组成部分，起自苏州市，由江苏省苏震桃高速公路进入浙江省，经湖州、嘉兴，接已建成通车的钱江通道及其南北接线，通过杭绍"+

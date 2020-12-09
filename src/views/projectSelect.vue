@@ -8,10 +8,10 @@
       </div>
       <div class="top-btns">
         <ul>
-          <li class="active">设计</li>
-          <li>设计</li>
-          <li>设计</li>
-          <li>设计</li>
+          <li class="active" @click="handleClick('design')">设计</li>
+          <li @click="handleClick('constructions')">施工</li>
+          <li @click="handleClick('liangchang')">梁场</li>
+          <li @click="handleClick('curing')">养护</li>
         </ul>
       </div>
       <div class="bottom-btns">
@@ -47,6 +47,15 @@
 <script>
 export default {
   name: "PojectSelect",
+  created() {
+    window.localStorage.clear();
+  },
+  methods: {
+    handleClick(type) {
+      window.localStorage.setItem("projectId", "6686084c-b136-408b-b2c6-963c14defde5");
+      this.$router.push({ path: "/home/" + type });
+    },
+  },
 };
 </script>
 
@@ -60,7 +69,7 @@ export default {
     height: 908px
     position: absolute
     left: 50%
-    top: 50%
+    top: 45%
     transform: translate(-50%, -40%)
     display: flex
     justify-content: center
@@ -68,27 +77,6 @@ export default {
     img
       width: 100%
       height: 100%
-    .bottom-btns
-      position: absolute
-      bottom: 278px
-      z-index: 11
-      left: 0px
-      height: auto
-      width: 100%
-      .item
-        position: absolute
-        &.item1
-          left: 97px
-          margin-left: 0px
-          bottom: -14px
-          .icon
-            width: 104px
-            height: 105px
-            background: url(../assets/img/projectSelect/icon1.png)
-          .text
-            color: #00e0e2
-            font-size: 28px
-            margin-top: 10px
     .top-btns
       position: absolute
       top: 348px
@@ -142,4 +130,52 @@ export default {
         -webkit-background-clip: text
         left: -2px
         top: -4px
+    .bottom-btns
+      position: absolute
+      bottom: 278px
+      z-index: 11
+      left: 0px
+      height: auto
+      width: 100%
+      .item
+        position: absolute
+        .icon
+          width: 104px
+          height: 105px
+          margin: 0 auto
+          background: url(../assets/img/projectSelect/icon1.png)
+        .text
+          color: #00e0e2
+          font-size: 23px;
+          margin-top: 10px;
+          text-align: center;
+        &.item1
+          left: 97px
+          margin-left: 0px
+          bottom: -14px
+          transform: scale(0.8)
+        &.item2
+          left: 286px;
+          margin-left: 0px;
+          bottom: -95px;
+          transform: scale(0.9);
+        &.item3
+          left: 526px;
+          margin-left: 0px;
+          bottom: -134px;
+        &.item4
+          left: 762px;
+          margin-left: 0px;
+          bottom: -133px;
+        &.item5
+          right: 381px;
+          margin-left: 0px;
+          bottom: -104px;
+          transform: scale(0.9)
+        &.item6
+          right: 137px;
+          margin-left: 0px;
+          bottom: -37px
+          transform: scale(0.8)
+          animation: turn 1s linear infinite
 </style>

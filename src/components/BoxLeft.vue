@@ -33,6 +33,7 @@ export default {
   top: 30px
   bottom: 140px
   width: 355px
+  z-index: 9999
   &:before
     content: ''
     position: absolute
