@@ -66,6 +66,7 @@ export default {
   position: absolute
   left: 0px
   top: 30px
+  width: 30px
   z-index: 9999
   .menus
     .item

@@ -24,7 +24,7 @@ export default {
       return {
         data: [{
           label: '工程方案',
-              isShow: true,
+          isShow: true,
           children: [{
             label: '路线方向',
               isShow: true,
@@ -93,8 +93,10 @@ export default {
       };
     },
     methods: {
-      handleNodeClick(data) {
-        console.log(data);
+      handleNodeClick(data,node,root) {
+        console.log(data,node,root);
+        // console.log(node.parent);
+        data.isShow = false
       },
       renderContent(h, { node, data, store }) {
         console.log(data)

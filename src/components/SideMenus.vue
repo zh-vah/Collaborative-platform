@@ -28,6 +28,7 @@ export default {
     return {
       currentIndex: 0,
       currentKey: this.headerIndex,
+      currentItem: "",
       menu: {
         menus1: [
           {
@@ -83,6 +84,7 @@ export default {
         this.$router.push({ path: item.path });
       }
       this.currentIndex = index;
+      this.currentItem = item
       this.$emit("change", item);
     },
   },

@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-function validateFileName(str) {
+function validateFileName (str) {
     return /^\S+\.vue$/.test(str) && str.replace(/^\S+\/(\w+)\.vue$/, (rs, $1) => $1)
 }
 
@@ -65,48 +65,48 @@ const routes = [
         path: '/login',
         name: 'login',
         component: () =>
-            import ('../views/login.vue')
+            import('../views/login.vue')
     },
     {
         path: '/projectSelect',
         name: 'PojectSelect',
         component: () =>
-            import ('../views/projectSelect.vue')
+            import('../views/projectSelect.vue')
     },
     {
         path: '/home',
         name: 'Home',
         component: () =>
-            import ('../views/Home.vue'),
+            import('../views/Home.vue'),
         redirect: '/home/design',
         children: [{
-                path: '/home/design',
-                name: 'design',
-                component: () =>
-                    import ('../views/SubHome.vue'),
-                children: designRouters
-            },
-            {
-                path: '/home/constructions',
-                name: 'constructions',
-                component: () =>
-                    import ('../views/SubHome.vue'),
-                children: constructionRouters
-            },
-            {
-                path: '/home/liangchang',
-                name: 'liangchang',
-                component: () =>
-                    import ('../views/SubHome.vue'),
-                children: liangchangRouters
-            },
-            {
-                path: '/home/curing',
-                name: 'curing',
-                component: () =>
-                    import ('../views/SubHome.vue'),
-                children: curingRouters
-            }
+            path: '/home/design',
+            name: 'design',
+            component: () =>
+                import('../views/SubHome.vue'),
+            children: designRouters
+        },
+        {
+            path: '/home/constructions',
+            name: 'constructions',
+            component: () =>
+                import('../views/SubHome.vue'),
+            children: constructionRouters
+        },
+        {
+            path: '/home/liangchang',
+            name: 'liangchang',
+            component: () =>
+                import('../views/SubHome.vue'),
+            children: liangchangRouters
+        },
+        {
+            path: '/home/curing',
+            name: 'curing',
+            component: () =>
+                import('../views/SubHome.vue'),
+            children: curingRouters
+        }
         ]
     }
 ]

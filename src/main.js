@@ -3,10 +3,12 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import ElementUI from 'element-ui'
-import BoxLeft from '@/components/BoxLeft'
-import BoxRight from '@/components/BoxRight.vue'
+import BoxLeft from './components/BoxLeft.vue'
+import BoxRight from './components/BoxRight.vue'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/reset.sass'
+
+import './progress';
 
 import ECharts from 'vue-echarts'
 import 'echarts/lib/chart/line'
@@ -19,7 +21,6 @@ Vue.component('v-chart', ECharts)
 
 
 Vue.use(ElementUI)
-Vue.use(BoxLeft)
 Vue.component('BoxLeft', BoxLeft)
 Vue.component('BoxRight', BoxRight)
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="login-wrap">
+  <div class="login-wrap" id="particlesDom">
     <div class="left-basemap-box">
       <img class="left-basemap" src="@/assets/img/login/left-base-map.png" alt />
       <div class="left-basemap-text fadeInDownBig animated">
@@ -53,6 +53,7 @@
 
 <script>
 import md5 from "js-md5";
+import particlesConfig from "./particles.json";
 import { resLoginApiCheckLogin } from "@/api";
 import { IS_OK } from "@/api/path";
 export default {
@@ -66,7 +67,13 @@ export default {
       },
     };
   },
+  mounted(){
+    this.init();
+  },
   methods: {
+    init() {
+      window.particlesJS("particlesDom", particlesConfig);
+    },
     handelSubmit() {
       if (!this.form.username) {
         this.$message({

@@ -82,5 +82,6 @@ export default {
       width: 100%
       height: 100%
       padding: 0 20px
+      overflow: hidden
       box-sizing: border-box
 </style>

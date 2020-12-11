@@ -1,5 +1,5 @@
 <template>
-  <div class="project-select-wrap">
+  <div class="project-select-wrap" id="particlesDom">
     <div class="project-select-container">
       <img src="@/assets/img/projectSelect/bg.png" alt />
       <div class="titles">
@@ -45,12 +45,19 @@
 </template>
 
 <script>
+import particlesConfig from "./particles.json";
 export default {
   name: "PojectSelect",
   created() {
     window.localStorage.clear();
   },
+  mounted() {
+    this.init();
+  },
   methods: {
+    init() {
+      window.particlesJS("particlesDom", particlesConfig);
+    },
     handleClick(type) {
       window.localStorage.setItem("projectId", "6686084c-b136-408b-b2c6-963c14defde5");
       this.$router.push({ path: "/home/" + type });
@@ -130,52 +137,103 @@ export default {
         -webkit-background-clip: text
         left: -2px
         top: -4px
-    .bottom-btns
-      position: absolute
-      bottom: 278px
-      z-index: 11
-      left: 0px
-      height: auto
-      width: 100%
-      .item
-        position: absolute
-        .icon
-          width: 104px
-          height: 105px
-          margin: 0 auto
-          background: url(../assets/img/projectSelect/icon1.png)
-        .text
-          color: #00e0e2
-          font-size: 23px;
-          margin-top: 10px;
-          text-align: center;
-        &.item1
-          left: 97px
-          margin-left: 0px
-          bottom: -14px
-          transform: scale(0.8)
-        &.item2
-          left: 286px;
-          margin-left: 0px;
-          bottom: -95px;
-          transform: scale(0.9);
-        &.item3
-          left: 526px;
-          margin-left: 0px;
-          bottom: -134px;
-        &.item4
-          left: 762px;
-          margin-left: 0px;
-          bottom: -133px;
-        &.item5
-          right: 381px;
-          margin-left: 0px;
-          bottom: -104px;
-          transform: scale(0.9)
-        &.item6
-          right: 137px;
-          margin-left: 0px;
-          bottom: -37px
-          transform: scale(0.8)
-          animation: turn 1s linear infinite
+</style>
+
+<style scoped>
+.bottom-btns {
+  position: absolute;
+  top: 278px;
+  z-index: 11;
+  left: 0px;
+  height: auto;
+  width: 1500px;
+  perspective: 1500px;
+  transform-style: preserve-3d;
+}
+
+.item {
+  position: absolute;
+  bottom: 0px;
+}
+
+.icon {
+  width: 104px;
+  height: 105px;
+  margin: 0 auto;
+  background: url(../assets/img/projectSelect/icon1.png);
+}
+
+.text {
+  color: #00e0e2;
+  font-size: 23px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.item1 {
+  animation: animX 9s cubic-bezier(0.26, 0, 0.64, 1) -4.5s infinite alternate,
+    animY 9s cubic-bezier(0.26, 0, 0.64, 1) 0s infinite alternate,
+    scale 18s cubic-bezier(0.36, 0, 0.64, 1) 0s infinite alternate;
+}
+
+.item2 {
+  animation: animX 9s cubic-bezier(0.26, 0, 0.64, 1) -7.5s infinite alternate,
+    animY 9s cubic-bezier(0.26, 0, 0.64, 1) -3s infinite alternate,
+    scale 18s cubic-bezier(0.36, 0, 0.64, 1) -3s infinite alternate;
+}
+
+.item3 {
+  animation: animX 9s cubic-bezier(0.36, 0, 0.64, 1) -10.5s infinite alternate,
+    animY 9s cubic-bezier(0.36, 0, 0.64, 1) -6s infinite alternate,
+    scale 18s cubic-bezier(0.36, 0, 0.64, 1) -6s infinite alternate;
+}
+
+.item4 {
+  animation: animX 9s cubic-bezier(0.36, 0, 0.64, 1) -13.5s infinite alternate,
+    animY 9s cubic-bezier(0.36, 0, 0.64, 1) -9s infinite alternate,
+    scale 18s cubic-bezier(0.36, 0, 0.64, 1) -9s infinite alternate;
+}
+
+.item5 {
+  animation: animX 9s cubic-bezier(0.36, 0, 0.64, 1) -16.5s infinite alternate,
+    animY 9s cubic-bezier(0.36, 0, 0.64, 1) -12s infinite alternate,
+    scale 18s cubic-bezier(0.36, 0, 0.64, 1) -12s infinite alternate;
+}
+
+.item6 {
+  animation: animX 9s cubic-bezier(0.36, 0, 0.64, 1) -19.5s infinite alternate,
+    animY 9s cubic-bezier(0.36, 0, 0.64, 1) -15s infinite alternate,
+    scale 18s cubic-bezier(0.36, 0, 0.64, 1) -15s infinite alternate;
+}
+
+@keyframes animX {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: 1300px;
+  }
+}
+@keyframes animY {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: 310px;
+  }
+}
+@keyframes scale {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+}
 </style>
