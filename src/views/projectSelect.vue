@@ -16,27 +16,27 @@
       </div>
       <div class="bottom-btns">
         <div class="item item1">
-          <div class="icon"></div>
+          <div class="icon"><i class="icon iconfont icon-qiyefengcai"></i></div>
           <div class="text">设计管理</div>
         </div>
         <div class="item item2">
-          <div class="icon"></div>
+          <div class="icon"><i class="icon iconfont icon-qiyefengcai"></i></div>
           <div class="text">项目管理</div>
         </div>
         <div class="item item3">
-          <div class="icon"></div>
+          <div class="icon"><i class="icon iconfont icon-qiyefengcai"></i></div>
           <div class="text">智慧工地</div>
         </div>
         <div class="item item4">
-          <div class="icon"></div>
+          <div class="icon"><i class="icon iconfont icon-qiyefengcai"></i></div>
           <div class="text">梁场管理</div>
         </div>
         <div class="item item5">
-          <div class="icon"></div>
+          <div class="icon"><i class="icon iconfont icon-qiyefengcai"></i></div>
           <div class="text">养护管理</div>
         </div>
         <div class="item item6">
-          <div class="icon"></div>
+          <div class="icon"><i class="icon iconfont icon-qiyefengcai"></i></div>
           <div class="text">一体化数据管理</div>
         </div>
       </div>
@@ -111,6 +111,8 @@ export default {
           cursor: pointer
           &:last-child
             margin-right: 0px
+          &:hover
+            opacity .8
     .titles
       position: absolute
       top: 218px
@@ -154,15 +156,40 @@ export default {
 .item {
   position: absolute;
   bottom: 0px;
+  cursor: pointer;
 }
 
 .icon {
   width: 104px;
   height: 105px;
   margin: 0 auto;
-  background: url(../assets/img/projectSelect/icon1.png);
+  background: url(../assets/img/projectSelect/icon1.png) no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.bottom-btns:hover .item {
+  animation-play-state:paused;
+}
+.item:hover .icon {
+  width: 104px;
+  height: 105px;
+  margin: 0 auto;
+  background: url(../assets/img/projectSelect/icon2.png) no-repeat;
+}
+
+.icon i {
+  font-size: 28px;
+  color: #26ceff;
+}
+
+.item:hover .icon i {
+  color: #fff200
+}
+.item:hover .text {
+  color: #ffde3d
+}
 .text {
   color: #00e0e2;
   font-size: 23px;
@@ -211,7 +238,7 @@ export default {
     left: 0px;
   }
   100% {
-    left: 1300px;
+    left: 1280px;
   }
 }
 @keyframes animY {
@@ -219,7 +246,7 @@ export default {
     top: 0px;
   }
   100% {
-    top: 310px;
+    top: 340px;
   }
 }
 @keyframes scale {

@@ -1,6 +1,6 @@
 <template>
   <div class="side-left-bar bounceInLeft animated">
-    {{$route.path}}
+    <!-- {{$route.path}} -->
     <ul class="menus">
       <li
         v-for="(item,index) in menus"
